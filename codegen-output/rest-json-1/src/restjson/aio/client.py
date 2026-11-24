@@ -30,6 +30,7 @@ from ..models import (
     _EventStreamDeserializer,
 )
 from .config import AsyncRestJsonProtocolConfig, Plugin
+from .recursion_detection import recursion_detection_plugin
 from .user_agent import aws_user_agent_plugin
 
 from typing import TYPE_CHECKING
@@ -151,7 +152,11 @@ logger = logging.getLogger(__name__)
 class AsyncRestJsonProtocolClient(AsyncClient[AsyncRestJsonProtocolConfig]):
     """Client for RestJson"""
 
-    _client_plugins = (aws_user_agent_plugin, user_agent_plugin)
+    _client_plugins = (
+        aws_user_agent_plugin,
+        recursion_detection_plugin,
+        user_agent_plugin,
+    )
 
     @_overload
     async def all_query_string_types(

@@ -276,6 +276,10 @@
     "FlexibleChecksumsInterceptor": "class",
     "logger": "Logger"
   },
+  "smithy_aws_core.interceptors.recursion_detection": {
+    "RecursionDetectionInterceptor": "class",
+    "TRACE_ID_HEADER": "str"
+  },
   "smithy_aws_core.interceptors.user_agent": {
     "UserAgentInterceptor": "class"
   },

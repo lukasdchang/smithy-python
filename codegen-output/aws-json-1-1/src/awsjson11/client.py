@@ -14,6 +14,7 @@ from smithy_http.plugins import user_agent_plugin
 
 from . import models as _models
 from .config import JsonProtocolConfig, Plugin
+from .recursion_detection import recursion_detection_plugin
 from .user_agent import aws_user_agent_plugin
 
 from typing import TYPE_CHECKING
@@ -47,7 +48,11 @@ logger = logging.getLogger(__name__)
 class JsonProtocolClient(Client[JsonProtocolConfig]):
     """Client for JsonProtocol"""
 
-    _client_plugins = (aws_user_agent_plugin, user_agent_plugin)
+    _client_plugins = (
+        aws_user_agent_plugin,
+        recursion_detection_plugin,
+        user_agent_plugin,
+    )
 
     @_overload
     def content_type_parameters(

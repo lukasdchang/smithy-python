@@ -1,0 +1,4 @@
+{
+  "type": "feature",
+  "description": "AWS clients running in Lambda now send the invocation's `X-Amzn-Trace-Id`, letting services detect and halt runaway workloads."
+}
