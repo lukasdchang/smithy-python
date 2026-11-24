@@ -11,9 +11,10 @@ Lambda that writes to the S3 bucket that triggers it.
 The SDK only carries the value. It never reads, counts, or changes `lineage`.
 Loop detection and the loop limit live in the services.
 
-This change implements the
-[Recursion Detection SEP](https://code.amazon.com/packages/AwsDrSeps/blobs/main/--/seps/accepted/shared/recursion-detection.md)
-for smithy-python generated AWS clients.
+This change implements the Recursion Detection SEP for smithy-python generated
+AWS clients. See
+[Lambda recursive loop detection](https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html)
+for the service behavior it feeds.
 
 ## Background
 
